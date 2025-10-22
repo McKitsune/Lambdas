@@ -1,11 +1,11 @@
-// checkout.js
+
 const AWS = require("aws-sdk");
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = async (event) => {
     const { userId, cartItems } = JSON.parse(event.body);
 
-    // Lógica para procesar los artículos en el carrito y crear un pedido
+
     const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
     const params = {
